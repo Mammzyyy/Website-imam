@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Saya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #001b33;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Background dengan bintang dan bulan */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #001b33;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 33%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Bulan sabit */
+        .moon {
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle at 30% 30%, #ffffcc, #e6e6e6 70%, transparent 80%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 255, 204, 0.8);
+        }
+
+        .moon:before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 25%;
+            width: 100px;
+            height: 100px;
+            background-color: #001b33;
+            border-radius: 50%;
+        }
+
+        /* Komet dengan ekor */
+        .meteor {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            animation: fallDiagonal 3s linear infinite;
+            pointer-events: none;
+        }
+
+        .meteor:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 6px;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: tailFade 3s linear infinite;
+        }
+
+        @keyframes fallDiagonal {
+            0% {
+                top: -10%;
+                left: 110%;
+                opacity: 1;
+            }
+            100% {
+                top: 120%;
+                left: -10%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes tailFade {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            max-width: 800px;
+            margin: 200px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #00796b;
+            color: white;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-bottom: 2px solid #00796b;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+            cursor: pointer; /* Mengubah kursor saat hover pada gambar */
+            transition: transform 0.3s;
+        }
+
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        li:hover {
+            background-color: rgba(178, 223, 219, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="stars"></div>
+        <div class="moon"></div>
+    </div>
+
+    <!-- Menambahkan Musik -->
+    <audio id="audio" loop>
+        <source src="musik.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <h1>Tentang Saya</h1>
+        <div class="profile">
+            <img src="imam.jpeg" alt="Foto Profil" onclick="playMusic()">
+            <div class="info">
+                <ul>
+                    <li><strong>Nama: </strong>IMAM SADEWA</li>
+                    <li><strong>Alamat: </strong>Jalan Masjid Taufiq No 11A</li>
+                    <li><strong>Tempat Lahir: </strong>Kuta Baru</li>
+                    <li><strong>Tahun Lahir: </strong>05 Januari 2006</li>
+                    <li><strong>Pekerjaan: </strong>Mahasiswa</li>
+                    <li><strong>Hobi: </strong>Badminton, Bermain Game, Membaca</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk memulai musik saat gambar diklik
+        function playMusic() {
+            const audio = document.getElementById('audio');
+            audio.play();
+        }
+
+        // Menambahkan bintang sedikit
+        const starsContainer = document.querySelector('.stars');
+        for (let i = 0; i < 15; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 100 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 2 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Menambahkan komet
+        const background = document.querySelector('.background');
+        setInterval(() => {
+            const meteor = document.createElement('div');
+            meteor.classList.add('meteor');
+            background.appendChild(meteor);
+
+            setTimeout(() => {
+                meteor.remove();
+            }, 3000);
+        }, 3000);
+    </script>
+</body>
+</html>
