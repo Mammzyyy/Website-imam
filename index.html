@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About me</title>
+    <title>About Me</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -12,10 +12,9 @@
             padding: 0;
             background-color: #001b33;
             color: #fff;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Background dengan bintang dan bulan */
         .background {
             position: fixed;
             top: 0;
@@ -46,15 +45,10 @@
         }
 
         @keyframes twinkle {
-            0% {
-                opacity: 0.3;
-            }
-            100% {
-                opacity: 1;
-            }
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
 
-        /* Bulan sabit */
         .moon {
             position: absolute;
             top: 10%;
@@ -77,7 +71,6 @@
             border-radius: 50%;
         }
 
-        /* Komet dengan ekor */
         .meteor {
             position: absolute;
             width: 6px;
@@ -103,31 +96,19 @@
         }
 
         @keyframes fallDiagonal {
-            0% {
-                top: -10%;
-                left: 110%;
-                opacity: 1;
-            }
-            100% {
-                top: 120%;
-                left: -10%;
-                opacity: 0;
-            }
+            0% { top: -10%; left: 110%; opacity: 1; }
+            100% { top: 120%; left: -10%; opacity: 0; }
         }
 
         @keyframes tailFade {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
+            0% { opacity: 1; }
+            100% { opacity: 0; }
         }
 
         .container {
             position: relative;
-            max-width: 800px;
-            margin: 200px auto;
+            max-width: 900px;
+            margin: 150px auto 50px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -157,7 +138,7 @@
             width: 150px;
             height: 150px;
             margin-right: 20px;
-            cursor: pointer; /* Mengubah kursor saat hover pada gambar */
+            cursor: pointer;
             transition: transform 0.3s;
         }
 
@@ -181,6 +162,37 @@
         li:hover {
             background-color: rgba(178, 223, 219, 0.8);
         }
+
+        /* Grid Section Below About Me */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .card h2 {
+            color: #00e5ff;
+        }
+
+        .card ul {
+            padding-left: 0;
+        }
+
+        .card ul li {
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -189,37 +201,69 @@
         <div class="moon"></div>
     </div>
 
-    <!-- Menambahkan Musik -->
     <audio id="audio" loop>
-        <source src="musik.mp3" type="audio/mp3">
+        <source src="music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <div class="container">
-        <h1>Tentang Saya</h1>
+        <h1>About Me</h1>
         <div class="profile">
-            <img src="imam.jpeg" alt="Foto Profil" onclick="playMusic()">
+            <img src="imam.jpeg" alt="Profile Photo" onclick="playMusic()">
             <div class="info">
                 <ul>
-                    <li><strong>Nama: </strong>IMAM SADEWA</li>
-                    <li><strong>Alamat: </strong>Jalan Masjid Taufiq No 11A</li>
-                    <li><strong>Tempat Lahir: </strong>Kuta Baru</li>
-                    <li><strong>Tahun Lahir: </strong>05 Januari 2006</li>
-                    <li><strong>Pekerjaan: </strong>Mahasiswa</li>
-                    <li><strong>Hobi: </strong>Badminton, Bermain Game, Membaca</li>
+                    <li><strong>Name:</strong> IMAM SADEWA</li>
+                    <li><strong>Address:</strong> Gang Bali No 8</li>
+                    <li><strong>Place of Birth:</strong> Kuta Baru</li>
+                    <li><strong>Year of Birth:</strong> January 5, 2006</li>
+                    <li><strong>Occupation:</strong> Student</li>
+                    <li><strong>Hobbies:</strong> Badminton, Gaming, Reading</li>
                 </ul>
+            </div>
+        </div>
+
+        <h1>Information</h1>
+        <div class="grid-4">
+            <div class="card">
+                <h2>History</h2>
+                <ul>
+                    <li>2012–2018: Kuta Baru Elementary School</li>
+                    <li>2018–2021: Junior High School 1 Kuta</li>
+                    <li>2021–2024: Senior High School 2 Kuta</li>
+                    <li>2024–Now: Universitas Muhammadiyah Sumatera Utara</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Social Media</h2>
+                <ul>
+                    <li><img src="Instagram.jpeg" alt="Instagram" width="20"> Instagram: @imamsa05</li>
+                    <li><img src="Tiktok.jpeg" alt="Tiktok" width="20"> Tiktok: @bucittt</li>
+                    <li><img src="ml.jpeg" alt="Mobile Legends" width="20"> Mobile Legends: Bucittt.</li>
+                    <li><img src="Github.jpeg" alt="GitHub" width="20"> GitHub: github.com/mammzyy</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Achievements</h2>
+                <ul>
+                    <li>2St Place Graphic Desin</li>
+                    <li>2St place Creative Video Editor</li>
+                    <li>2nd Place Mobile Legend Regend Cup</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h2>Quotes</h2>
+                <p>"Life isn’t about waiting for the storm to pass, it's about learning to dance in the rain."</p>
+                <p>"Passion is the key to all achievements."</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Fungsi untuk memulai musik saat gambar diklik
         function playMusic() {
             const audio = document.getElementById('audio');
             audio.play();
         }
 
-        // Menambahkan bintang sedikit
         const starsContainer = document.querySelector('.stars');
         for (let i = 0; i < 15; i++) {
             const star = document.createElement('div');
@@ -230,16 +274,12 @@
             starsContainer.appendChild(star);
         }
 
-        // Menambahkan komet
         const background = document.querySelector('.background');
         setInterval(() => {
             const meteor = document.createElement('div');
             meteor.classList.add('meteor');
             background.appendChild(meteor);
-
-            setTimeout(() => {
-                meteor.remove();
-            }, 3000);
+            setTimeout(() => meteor.remove(), 3000);
         }, 3000);
     </script>
 </body>
